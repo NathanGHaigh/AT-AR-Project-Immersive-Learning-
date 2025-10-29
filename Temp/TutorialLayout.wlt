@@ -402,7 +402,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scenes
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: F:\UWE Everything Folder\Year 3\AT\AR-AT-Project
+  m_LastProjectPath: /Users/nghaigh/Documents/AT AR/AT-AR-Project-Immersive-Learning-
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
