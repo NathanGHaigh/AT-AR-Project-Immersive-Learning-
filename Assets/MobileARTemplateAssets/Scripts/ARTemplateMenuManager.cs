@@ -42,6 +42,19 @@ namespace UnityEngine.XR.Templates.AR
         }
 
         [SerializeField]
+        [Tooltip("The menu with all the subject categories.")]
+        GameObject m_SelectionMenu;
+
+        /// <summary>
+        /// Menu with all the subject categories.
+        /// </summary>
+        public GameObject selectionMenu
+        {
+            get => m_SelectionMenu;
+            set => m_SelectionMenu = value;
+        }
+
+        [SerializeField]
         [Tooltip("The menu with all the creatable objects.")]
         GameObject m_ObjectMenu;
 
@@ -80,6 +93,20 @@ namespace UnityEngine.XR.Templates.AR
             set => m_ObjectMenuAnimator = value;
         }
 
+
+        [SerializeField]
+        [Tooltip("The list of UI available to spawn.")]
+        List<GameObject> m_SubMenuUIPrefabs = new List<GameObject>();
+
+        /// <summary>
+        /// The list of prefabs available to spawn.
+        /// </summary>
+        public List<GameObject> submenuprefabs
+        {
+            get => m_SubMenuUIPrefabs;
+            set => m_SubMenuUIPrefabs = value;
+        }
+
         [SerializeField]
         [Tooltip("The object spawner component in charge of spawning new objects.")]
         ObjectSpawner m_ObjectSpawner;
@@ -104,6 +131,19 @@ namespace UnityEngine.XR.Templates.AR
         {
             get => m_CancelButton;
             set => m_CancelButton = value;
+        }
+
+        [SerializeField]
+        [Tooltip("Button that closes the object creation menu.")]
+        Button m_BackButton;
+
+        /// <summary>
+        /// Button that closes the object creation menu.
+        /// </summary>
+        public Button backButton
+        {
+            get => m_BackButton;
+            set => m_BackButton = value;
         }
 
         [SerializeField]
@@ -211,8 +251,11 @@ namespace UnityEngine.XR.Templates.AR
         }
 
         bool m_IsPointerOverUI;
+        bool m_ShowSelectionMenu;
         bool m_ShowObjectMenu;
         bool m_ShowOptionsModal;
+        bool m_ShowBackButton;
+        bool anySubMenuActive;
         bool m_VisualizePlanes = true;
         bool m_ShowDebugMenu;
         bool m_InitializingDebugMenu;
@@ -228,8 +271,11 @@ namespace UnityEngine.XR.Templates.AR
         /// </summary>
         void OnEnable()
         {
-            m_CreateButton.onClick.AddListener(ShowMenu);
+            m_CreateButton.onClick.AddListener(ShowSelectionMenu);
+            m_CreateButton.onClick.AddListener(DebugLog);   
+            //m_CancelButton.onClick.AddListener(HideSelectionMenu);
             m_CancelButton.onClick.AddListener(HideMenu);
+            m_BackButton.onClick.AddListener(backtoSelectionMenu);
             m_DeleteButton.onClick.AddListener(DeleteFocusedObject);
             m_PlaneManager.trackablesChanged.AddListener(OnPlaneChanged);
         }
@@ -241,7 +287,7 @@ namespace UnityEngine.XR.Templates.AR
         {
             m_ShowObjectMenu = false;
             m_CreateButton.onClick.RemoveListener(ShowMenu);
-            m_CancelButton.onClick.RemoveListener(HideMenu);
+            m_CancelButton.onClick.RemoveListener(HideSelectionMenu);
             m_DeleteButton.onClick.RemoveListener(DeleteFocusedObject);
             m_PlaneManager.trackablesChanged.RemoveListener(OnPlaneChanged);
         }
@@ -306,7 +352,9 @@ namespace UnityEngine.XR.Templates.AR
                 m_CreateButton.gameObject.SetActive(true);
                 m_DeleteButton.gameObject.SetActive(m_InteractionGroup?.focusInteractable != null);
             }
-
+                        
+          
+           
             if (!m_IsPointerOverUI && m_ShowOptionsModal)
             {
                 m_IsPointerOverUI = EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(-1);
@@ -339,6 +387,92 @@ namespace UnityEngine.XR.Templates.AR
             HideMenu();
         }
 
+        public void SetSubjectCategory(int categoryIndex)
+        {
+            if (m_SubMenuUIPrefabs == null)
+            {
+                Debug.LogWarning("No Sub Menu UI Prefabs set in the ARTemplateMenuManager.");
+                return;
+            }
+            if (categoryIndex < 0 || categoryIndex >= m_SubMenuUIPrefabs.Count)
+            {
+                Debug.LogWarning("Category index is out of range of the Sub Menu UI Prefabs set in the ARTemplateMenuManager.");
+                return;
+            }
+            // Deactivate all sub menus first
+            foreach (var subMenu in m_SubMenuUIPrefabs)
+            {
+                if (subMenu != null)
+                    subMenu.SetActive(false);
+            }
+            // Activate the selected sub menu
+            var selectedSubMenu = m_SubMenuUIPrefabs[categoryIndex];
+            if (selectedSubMenu != null)
+                selectedSubMenu.SetActive(true);
+                ShowBackButton();
+        }
+
+        void ShowBackButton()
+        {
+            m_ShowBackButton = true;
+            m_BackButton.gameObject.SetActive(true);
+            if (!m_ObjectMenuAnimator.GetBool("Show"))
+            {
+                m_ObjectMenuAnimator.SetBool("Show", true);
+            }
+            AdjustARDebugMenuPosition();
+        }
+
+        void HideBackButton()
+        {
+            m_ShowBackButton = false;
+            m_BackButton.gameObject.SetActive(false);
+            if (!m_ObjectMenuAnimator.GetBool("Show"))
+            {
+                m_ObjectMenuAnimator.SetBool("Show", true);
+            }
+            AdjustARDebugMenuPosition();
+        }
+
+        void ShowSelectionMenu()
+        {
+            m_ShowSelectionMenu = true;
+            m_SelectionMenu.SetActive(true);
+            if (!m_ObjectMenuAnimator.GetBool("Show"))
+            {
+                m_ObjectMenuAnimator.SetBool("Show", true);
+            }
+            AdjustARDebugMenuPosition();
+        }
+
+        void HideSelectionMenu()
+        {
+            m_ShowSelectionMenu = false;
+            m_SelectionMenu.SetActive(false);
+            if (!m_ObjectMenuAnimator.GetBool("Show"))
+            {
+                m_ObjectMenuAnimator.SetBool("Show", true);
+            }
+            AdjustARDebugMenuPosition();
+        }
+
+        void backtoSelectionMenu()
+        {
+            if (m_SubMenuUIPrefabs != null)
+            {
+                foreach (var subMenu in m_SubMenuUIPrefabs)
+                {
+                    if (subMenu != null)
+                        subMenu.SetActive(false);
+                }
+            }
+            if (!m_ObjectMenuAnimator.GetBool("Show"))
+            {
+                m_ObjectMenuAnimator.SetBool("Show", true);
+            }
+            AdjustARDebugMenuPosition();
+        }
+
         void ShowMenu()
         {
             m_ShowObjectMenu = true;
@@ -348,6 +482,11 @@ namespace UnityEngine.XR.Templates.AR
                 m_ObjectMenuAnimator.SetBool("Show", true);
             }
             AdjustARDebugMenuPosition();
+        }
+
+        void DebugLog()
+        {
+            Debug.Log("Test log from ARTemplateMenuManager");
         }
 
         /// <summary>
