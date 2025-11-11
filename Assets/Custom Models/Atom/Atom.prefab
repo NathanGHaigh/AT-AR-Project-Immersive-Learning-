@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 7516592328053175089}
   - component: {fileID: 2888254624143104041}
   - component: {fileID: 2429892502777287438}
+  - component: {fileID: 6107989932916485190}
   m_Layer: 0
   m_Name: Atom
   m_TagString: Untagged
@@ -585,6 +586,19 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
+--- !u!114 &6107989932916485190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141473472709486987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3fd15536cf12740a97429debd9dde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atom: {fileID: 1272046058250999562}
 --- !u!1 &7497559419627896607
 GameObject:
   m_ObjectHideFlags: 0
