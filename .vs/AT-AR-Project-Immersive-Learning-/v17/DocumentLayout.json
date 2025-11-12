@@ -1,13 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\",
+  "WorkspaceRootPath": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\FissionReaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\TextFaceCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Custom Scripts\\TextFaceCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\FissionReaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Custom Scripts\\FissionReaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\RotateAtom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\DestroySelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Custom Scripts\\DestroySelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\RotateAtom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Custom Scripts\\RotateAtom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,30 +26,54 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RotateAtom.cs",
-              "DocumentMoniker": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\RotateAtom.cs",
-              "RelativeDocumentMoniker": "Assets\\Custom Scripts\\RotateAtom.cs",
-              "ToolTip": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\RotateAtom.cs",
-              "RelativeToolTip": "Assets\\Custom Scripts\\RotateAtom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "TextFaceCamera.cs",
+              "DocumentMoniker": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\TextFaceCamera.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom Scripts\\TextFaceCamera.cs",
+              "ToolTip": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\TextFaceCamera.cs",
+              "RelativeToolTip": "Assets\\Custom Scripts\\TextFaceCamera.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T22:54:18.258Z",
+              "WhenOpened": "2025-11-12T10:44:41.53Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "DestroySelf.cs",
+              "DocumentMoniker": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\DestroySelf.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom Scripts\\DestroySelf.cs",
+              "ToolTip": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\DestroySelf.cs",
+              "RelativeToolTip": "Assets\\Custom Scripts\\DestroySelf.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T10:26:24.19Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RotateAtom.cs",
+              "DocumentMoniker": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\RotateAtom.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom Scripts\\RotateAtom.cs",
+              "ToolTip": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\RotateAtom.cs",
+              "RelativeToolTip": "Assets\\Custom Scripts\\RotateAtom.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T22:54:18.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "FissionReaction.cs",
-              "DocumentMoniker": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\FissionReaction.cs",
+              "DocumentMoniker": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\FissionReaction.cs",
               "RelativeDocumentMoniker": "Assets\\Custom Scripts\\FissionReaction.cs",
-              "ToolTip": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\FissionReaction.cs",
+              "ToolTip": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\FissionReaction.cs",
               "RelativeToolTip": "Assets\\Custom Scripts\\FissionReaction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T22:41:44.996Z",
               "EditorCaption": ""

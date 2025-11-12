@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\",
+  "WorkspaceRootPath": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.render-pipelines.universal@2b88762731f8\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal@2b88762731f8\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\FissionReaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Custom Scripts\\FissionReaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.xr.core-utils@5b282bc7378d\\Runtime\\XRLoggingUtils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.xr.core-utils@5b282bc7378d\\Runtime\\XRLoggingUtils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\TextFaceCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Custom Scripts\\TextFaceCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\AffordanceSystem\\Rendering\\MaterialHelperBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\AffordanceSystem\\Rendering\\MaterialHelperBase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\DestroySelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Custom Scripts\\DestroySelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactables\\XRGrabInteractable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactables\\XRGrabInteractable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\RotateAtom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Custom Scripts\\RotateAtom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,57 +26,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MaterialHelperBase.cs",
-              "DocumentMoniker": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\AffordanceSystem\\Rendering\\MaterialHelperBase.cs",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\AffordanceSystem\\Rendering\\MaterialHelperBase.cs",
-              "ToolTip": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\AffordanceSystem\\Rendering\\MaterialHelperBase.cs",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\AffordanceSystem\\Rendering\\MaterialHelperBase.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAIBJwGIAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T22:19:20.787Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "XRLoggingUtils.cs",
-              "DocumentMoniker": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.xr.core-utils@5b282bc7378d\\Runtime\\XRLoggingUtils.cs",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.xr.core-utils@5b282bc7378d\\Runtime\\XRLoggingUtils.cs",
-              "ToolTip": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.xr.core-utils@5b282bc7378d\\Runtime\\XRLoggingUtils.cs",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.xr.core-utils@5b282bc7378d\\Runtime\\XRLoggingUtils.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAADcAAAAxAAAAAAAAAA==",
+              "Title": "TextFaceCamera.cs",
+              "DocumentMoniker": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\TextFaceCamera.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom Scripts\\TextFaceCamera.cs",
+              "ToolTip": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\TextFaceCamera.cs",
+              "RelativeToolTip": "Assets\\Custom Scripts\\TextFaceCamera.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T22:14:43.791Z",
+              "WhenOpened": "2025-11-12T10:44:41.53Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Lit.shader",
-              "DocumentMoniker": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.render-pipelines.universal@2b88762731f8\\Shaders\\Lit.shader",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal@2b88762731f8\\Shaders\\Lit.shader",
-              "ToolTip": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.render-pipelines.universal@2b88762731f8\\Shaders\\Lit.shader",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal@2b88762731f8\\Shaders\\Lit.shader",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-11-11T18:35:46.059Z",
+              "DocumentIndex": 2,
+              "Title": "DestroySelf.cs",
+              "DocumentMoniker": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\DestroySelf.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom Scripts\\DestroySelf.cs",
+              "ToolTip": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\DestroySelf.cs",
+              "RelativeToolTip": "Assets\\Custom Scripts\\DestroySelf.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T10:26:24.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "XRGrabInteractable.cs",
-              "DocumentMoniker": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactables\\XRGrabInteractable.cs",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactables\\XRGrabInteractable.cs",
-              "ToolTip": "F:\\UWE Everything Folder\\Year 3\\AT\\Git\\AT-AR-Project-Immersive-Learning-\\Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactables\\XRGrabInteractable.cs",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.xr.interaction.toolkit@76258c00be3e\\Runtime\\Interaction\\Interactables\\XRGrabInteractable.cs",
-              "ViewState": "AgIAAMcKAAAAAAAAAAAtwAAAAAAAAAAAAAAAAA==",
+              "Title": "RotateAtom.cs",
+              "DocumentMoniker": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\RotateAtom.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom Scripts\\RotateAtom.cs",
+              "ToolTip": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\RotateAtom.cs",
+              "RelativeToolTip": "Assets\\Custom Scripts\\RotateAtom.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T17:32:11.038Z"
+              "WhenOpened": "2025-11-11T22:54:18.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FissionReaction.cs",
+              "DocumentMoniker": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\FissionReaction.cs",
+              "RelativeDocumentMoniker": "Assets\\Custom Scripts\\FissionReaction.cs",
+              "ToolTip": "D:\\ngh\\AT-AR-Project-Immersive-Learning-\\Assets\\Custom Scripts\\FissionReaction.cs",
+              "RelativeToolTip": "Assets\\Custom Scripts\\FissionReaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T22:41:44.996Z",
+              "EditorCaption": ""
             }
           ]
         }

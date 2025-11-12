@@ -25,7 +25,7 @@ public class FissionReaction : MonoBehaviour
             Debug.Log("Fired");
 
             GameObject Decay = Instantiate(NeutronPrefab, Uranium.transform.position, Quaternion.identity);
-            Vector3 fission = new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5)).normalized;
+            Vector3 fission = new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5)).normalized /2;
             Rigidbody rb = Decay.GetComponent<Rigidbody>(); 
             rb.linearVelocity = fission;          
             timer = 5.0f;        
