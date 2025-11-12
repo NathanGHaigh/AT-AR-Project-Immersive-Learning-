@@ -13,8 +13,7 @@ public class FissionReaction : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        timer = 10.0f;
-
+        timer = 5.0f;
     }
 
     // Update is called once per frame
@@ -24,9 +23,12 @@ public class FissionReaction : MonoBehaviour
         if (timer < 0.0f)
         {
             Debug.Log("Fired");
+
             GameObject Decay = Instantiate(NeutronPrefab, Uranium.transform.position, Quaternion.identity);
-            Decay.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized * 5.0f;
-            timer = 10.0f;
+            Vector3 fission = new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5)).normalized;
+            Rigidbody rb = Decay.GetComponent<Rigidbody>(); 
+            rb.linearVelocity = fission;          
+            timer = 5.0f;        
         }
     }
 }
