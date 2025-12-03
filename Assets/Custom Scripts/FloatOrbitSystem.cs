@@ -32,6 +32,7 @@ public class FloatOrbitSystem : MonoBehaviour
         
         transform.position = new(0,1,0);
         InstaniateAsteroidBelt();
+        InstaniateKupierBelt();
 
     }
 
@@ -46,7 +47,10 @@ public class FloatOrbitSystem : MonoBehaviour
         Transform saturn = SolarSystem.transform.Find("Saturn");
         Transform uranus = SolarSystem.transform.Find("Uranus");
         Transform neptune = SolarSystem.transform.Find("Neptune");
-        for(int i = 0; i < SolarSystem.transform.childCount; i++)
+        Transform AsteroidBelt = SolarSystem.transform.Find("Belt");
+        Transform KupierBelt = SolarSystem.transform.Find("Belt2");
+
+        for (int i = 0; i < SolarSystem.transform.childCount; i++)
         {
             Transform child = SolarSystem.transform.GetChild(i);
             if (child.name.StartsWith("Asteroid"))
@@ -55,6 +59,17 @@ public class FloatOrbitSystem : MonoBehaviour
                 child.RotateAround(centerPoint.position, Vector3.up, rotationSpeed * Time.deltaTime);
             }
         }
+
+        for(int i = 0; i < SolarSystem.transform.childCount; i++)
+        {
+            Transform child = SolarSystem.transform.GetChild(i);
+            if (child.name.StartsWith("AsteroidKupier"))
+            {
+                float rotationSpeed = Random.Range(5f, 20f);
+                child.RotateAround(centerPoint.position, Vector3.up, rotationSpeed * Time.deltaTime);
+            }
+        }
+
         float time = Time.time;
         if (mercury != null)
             mercury.RotateAround(centerPoint.position, Vector3.up, mercuryOrbitSpeed * Time.deltaTime);
@@ -64,6 +79,10 @@ public class FloatOrbitSystem : MonoBehaviour
             earth.RotateAround(centerPoint.position, Vector3.up, earthOrbitSpeed * Time.deltaTime);
         if (mars != null)
             mars.RotateAround(centerPoint.position, Vector3.up, marsOrbitSpeed * Time.deltaTime);
+        if(AsteroidBelt != null)
+            AsteroidBelt.RotateAround(centerPoint.position, Vector3.up, 15f * Time.deltaTime);
+        if(KupierBelt != null)
+            KupierBelt.RotateAround(centerPoint.position, Vector3.up, 7f * Time.deltaTime);
         if (jupiter != null)
             jupiter.RotateAround(centerPoint.position, Vector3.up, jupiterOrbitSpeed * Time.deltaTime);
         if (saturn != null)
@@ -121,7 +140,6 @@ public class FloatOrbitSystem : MonoBehaviour
 
     private void InstaniateAsteroidBelt()
     {
-        Transform Spawn = SolarSystem.transform.Find("Belt");
         if (AsteroidBeltPrefab != null)
         {
             for (int i = 0; i < 50; i++)
@@ -131,6 +149,21 @@ public class FloatOrbitSystem : MonoBehaviour
                 asteroidBelt.transform.localPosition = new Vector3(Random.Range(3.5f, 4.5f), 0, Random.Range(3.5f, 4.5f));
                 asteroidBelt.transform.RotateAround(centerPoint.position, Vector3.up, Random.Range(0f, 360f));
                 asteroidBelt.transform.localScale = Vector3.one * 0.05f;               
+            }
+        }
+    }
+
+    private void InstaniateKupierBelt()
+    {
+        if (AsteroidBeltPrefab != null)
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                GameObject asteroidBelt = Instantiate(AsteroidBeltPrefab, SolarSystem.transform);
+                asteroidBelt.name = "AsteroidKupier";
+                asteroidBelt.transform.localPosition = new Vector3(Random.Range(7.5f, 9f), 0, Random.Range(7.5f, 9f));
+                asteroidBelt.transform.RotateAround(centerPoint.position, Vector3.up, Random.Range(0f, 360f));
+                asteroidBelt.transform.localScale = Vector3.one * 0.05f;
             }
         }
     }
