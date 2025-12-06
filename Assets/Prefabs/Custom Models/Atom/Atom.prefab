@@ -1396,7 +1396,7 @@ GameObject:
   - component: {fileID: 2888254624143104041}
   - component: {fileID: 2429892502777287438}
   - component: {fileID: 6107989932916485190}
-  - component: {fileID: 6442615037203466773}
+  - component: {fileID: 7071120791530348159}
   m_Layer: 0
   m_Name: Atom
   m_TagString: Untagged
@@ -1594,7 +1594,7 @@ MonoBehaviour:
   rotationSpeed: 50
   changeInterval: 30
   smoothTime: 20
---- !u!114 &6442615037203466773
+--- !u!114 &7071120791530348159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1603,77 +1603,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 7141473472709486987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 138893a02ebf04b4792a2ef953483310, type: 3}
+  m_Script: {fileID: 11500000, guid: b309761041ee54265b7f9a8c0f373dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
-  m_Colliders: []
-  m_InteractionLayers:
-    m_Bits: 1
-  m_DistanceCalculationMode: 1
-  m_SelectMode: 0
-  m_FocusMode: 1
-  m_CustomReticle: {fileID: 0}
-  m_AllowGazeInteraction: 0
-  m_AllowGazeSelect: 0
-  m_OverrideGazeTimeToSelect: 0
-  m_GazeTimeToSelect: 0.5
-  m_OverrideTimeToAutoDeselectGaze: 0
-  m_TimeToAutoDeselectGaze: 3
-  m_AllowGazeAssistance: 0
-  m_FirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstFocusEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastFocusExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FocusEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FocusExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Deactivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
-  m_StartingInteractionStrengthFilters: []
-  m_ARSessionOrigin: {fileID: 0}
-  m_XROrigin: {fileID: 0}
-  m_ExcludeUITouches: 1
+  m_ObjectPlaneTranslationMode: 1
+  m_EnablePlaneClassificationFilter: 1
+  m_PlaneClassificationsList: 
+  m_PlaneClassifications: 4294967295
+  m_UseInteractorOrientation: 1
   m_MinScale: 25
-  m_MaxScale: 50
-  m_ElasticRatioLimit: 0
-  m_Sensitivity: 0.75
+  m_MaxScale: 75
+  m_ScaleSensitivity: 10
   m_Elasticity: 0.15
+  m_EnableElasticBreakLimit: 0
+  m_ElasticBreakLimit: 0.5
 --- !u!1 &7497559419627896607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,8 +1642,8 @@ Transform:
   m_GameObject: {fileID: 7497559419627896607}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7516592328053175089}
