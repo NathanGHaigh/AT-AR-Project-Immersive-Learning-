@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
+using System.Collections.Specialized;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class FloatOrbitSystem : MonoBehaviour
 {
@@ -17,6 +21,8 @@ public class FloatOrbitSystem : MonoBehaviour
     [SerializeField]
     private float marsOrbitSpeed = 24.07f;
     [SerializeField]
+    private float ceresOrbitSpeed = 17.88f;
+    [SerializeField]
     private float jupiterOrbitSpeed = 13.07f;
     [SerializeField]
     private float saturnOrbitSpeed = 9.69f;
@@ -24,6 +30,10 @@ public class FloatOrbitSystem : MonoBehaviour
     private float uranusOrbitSpeed = 6.81f;
     [SerializeField]
     private float neptuneOrbitSpeed = 5.43f;
+    [SerializeField]
+    private float plutoOrbitSpeed = 4.74f;
+    [SerializeField]
+    private Material asteroidMaterial;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,6 +59,8 @@ public class FloatOrbitSystem : MonoBehaviour
         Transform neptune = SolarSystem.transform.Find("Neptune");
         Transform AsteroidBelt = SolarSystem.transform.Find("Belt");
         Transform KupierBelt = SolarSystem.transform.Find("Belt2");
+        Transform Ceres = SolarSystem.transform.Find("Ceres");
+        Transform Pluto = SolarSystem.transform.Find("Pluto");
 
         for (int i = 0; i < SolarSystem.transform.childCount; i++)
         {
@@ -81,7 +93,9 @@ public class FloatOrbitSystem : MonoBehaviour
             mars.RotateAround(centerPoint.position, Vector3.up, marsOrbitSpeed * Time.deltaTime);
         if(AsteroidBelt != null)
             AsteroidBelt.RotateAround(centerPoint.position, Vector3.up, 3f * Time.deltaTime);
-        if(KupierBelt != null)
+        if (Ceres != null)
+            Ceres.RotateAround(centerPoint.position, Vector3.up, ceresOrbitSpeed * Time.deltaTime);
+        if (KupierBelt != null)
             KupierBelt.RotateAround(centerPoint.position, Vector3.up, 2f * Time.deltaTime);
         if (jupiter != null)
             jupiter.RotateAround(centerPoint.position, Vector3.up, jupiterOrbitSpeed * Time.deltaTime);
@@ -91,6 +105,8 @@ public class FloatOrbitSystem : MonoBehaviour
             uranus.RotateAround(centerPoint.position, Vector3.up, uranusOrbitSpeed * Time.deltaTime);
         if (neptune != null)
             neptune.RotateAround(centerPoint.position, Vector3.up, neptuneOrbitSpeed * Time.deltaTime);
+        if (Pluto != null)
+            Pluto.RotateAround(centerPoint.position, Vector3.up, plutoOrbitSpeed * Time.deltaTime);
         ToScale();
         retainAllignment();
 
@@ -107,6 +123,8 @@ public class FloatOrbitSystem : MonoBehaviour
         Transform saturn = SolarSystem.transform.Find("Saturn");
         Transform uranus = SolarSystem.transform.Find("Uranus");
         Transform neptune = SolarSystem.transform.Find("Neptune");
+        Transform Ceres = SolarSystem.transform.Find("Ceres");
+        Transform Pluto = SolarSystem.transform.Find("Pluto");
         Transform Sun = SolarSystem.transform;
         if (Sun != null)
             Sun.localScale = new Vector3(0.5f, 0.5f, 0.5f) * 2;
@@ -126,16 +144,20 @@ public class FloatOrbitSystem : MonoBehaviour
             uranus.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 2;
         if (neptune != null)
             neptune.localScale = new Vector3(0.2f, 0.2f, 0.2f) * 2;
+        if (Ceres != null)
+            Ceres.localScale = new Vector3(0.03f, 0.03f, 0.03f) * 2;
+        if (Pluto != null)
+            Pluto.localScale = new Vector3(0.04f, 0.04f, 0.04f) * 2;
     }
 
     private void retainAllignment()
     {
         SolarSystem.transform.rotation = Quaternion.identity;   
-        for (int i = 0; i < SolarSystem.transform.childCount; i++)
-        {
-            Transform child = SolarSystem.transform.GetChild(i);
-            child.rotation = Quaternion.identity;
-        }
+        //for (int i = 0; i < SolarSystem.transform.childCount; i++)
+        //{
+        //    Transform child = SolarSystem.transform.GetChild(i);
+        //    child.rotation = Quaternion.identity;
+        //}
     }
 
     private void InstaniateAsteroidBelt()
@@ -148,7 +170,10 @@ public class FloatOrbitSystem : MonoBehaviour
                 asteroidBelt.name = "Asteroid";
                 asteroidBelt.transform.localPosition = new Vector3(Random.Range(3.0f, 3.5f), 0, Random.Range(3.0f, 3.5f));
                 asteroidBelt.transform.RotateAround(centerPoint.position, Vector3.up, Random.Range(0f, 360f));
-                asteroidBelt.transform.localScale = Vector3.one * 0.05f;               
+                asteroidBelt.transform.localScale = new Vector3(Random.Range(0.02f, 0.05f), Random.Range(0.02f, 0.05f), Random.Range(0.02f, 0.05f));
+                asteroidBelt.transform.rotation = new Quaternion(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
+                asteroidBelt.GetComponent<Renderer>().material = asteroidMaterial;
+
             }
         }
     }
@@ -163,7 +188,10 @@ public class FloatOrbitSystem : MonoBehaviour
                 asteroidBelt.name = "AsteroidKupier";
                 asteroidBelt.transform.localPosition = new Vector3(Random.Range(7.5f, 8.0f), 0, Random.Range(7.5f, 8.0f));
                 asteroidBelt.transform.RotateAround(centerPoint.position, Vector3.up, Random.Range(0f, 360f));
-                asteroidBelt.transform.localScale = Vector3.one * 0.05f;
+                asteroidBelt.transform.localScale = new Vector3(Random.Range(0.02f, 0.05f), Random.Range(0.02f, 0.05f), Random.Range(0.02f, 0.05f));
+                asteroidBelt.transform.rotation = new Quaternion(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
+                asteroidBelt.GetComponent<Renderer>().material = asteroidMaterial;
+
             }
         }
     }
