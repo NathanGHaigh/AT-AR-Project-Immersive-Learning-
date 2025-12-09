@@ -6,12 +6,15 @@ using Random = UnityEngine.Random;
 
 public class FloatOrbitSystem : MonoBehaviour
 {
-    [SerializeField]
+    [Header("Solar System Orbit Parameters")]
+//References to Self and Orbit Center Point
+[SerializeField]
     private GameObject SolarSystem;
     [SerializeField]
-    private GameObject AsteroidBeltPrefab;
-    [SerializeField]
     private Transform centerPoint;
+
+    [Header("Planet and Belt Orbital Parameters")]
+    //Rotation Speeds for the Planets and Belts
     [SerializeField]
     private float mercuryOrbitSpeed = 47.87f;
     [SerializeField]
@@ -30,10 +33,36 @@ public class FloatOrbitSystem : MonoBehaviour
     private float uranusOrbitSpeed = 6.81f;
     [SerializeField]
     private float neptuneOrbitSpeed = 5.43f;
+
+    [Header("Dwarf Planet Orbit Parameters")]
+    //Dwarf Planet Rotation Speeds and Orbital Parameters
+    [SerializeField]
+    float orbitScale = 0.01f;
+    //Pluto
     [SerializeField]
     private float plutoOrbitSpeed = 4.74f;
     [SerializeField]
+    private float plutosemiMajorAxis = 39.48f;
+    [SerializeField]
+    private float plutosemiMinorAxis = 38.86f;
+    [SerializeField]
+    private float plutoTilt = 17f;
+
+    //Makemake
+    [SerializeField]
+    private float MakemakeOrbitSpeed = 4.0f;
+    [SerializeField]
+    private float HaumeaOrbitSpeed = 3.5f;
+    [SerializeField]
+    private float ErisOrbitSpeed = 3.0f;
+    [SerializeField]
+    private float OrcusOrbitSpeed = 2.5f;
+
+    //Material and Prefab References
+    [SerializeField]
     private Material asteroidMaterial;
+    [SerializeField]
+    private GameObject AsteroidBeltPrefab;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,6 +90,10 @@ public class FloatOrbitSystem : MonoBehaviour
         Transform KupierBelt = SolarSystem.transform.Find("Belt2");
         Transform Ceres = SolarSystem.transform.Find("Ceres");
         Transform Pluto = SolarSystem.transform.Find("Pluto");
+        Transform Eris = SolarSystem.transform.Find("Eris");
+        Transform Haumea = SolarSystem.transform.Find("Haumea");
+        Transform Makemake = SolarSystem.transform.Find("Makemake");
+        Transform Orcus = SolarSystem.transform.Find("Orcus");
 
         for (int i = 0; i < SolarSystem.transform.childCount; i++)
         {
@@ -83,6 +116,7 @@ public class FloatOrbitSystem : MonoBehaviour
         }
 
         float time = Time.time;
+        //Planet Orbits
         if (mercury != null)
             mercury.RotateAround(centerPoint.position, Vector3.up, mercuryOrbitSpeed * Time.deltaTime);
         if (venus != null)
@@ -105,8 +139,22 @@ public class FloatOrbitSystem : MonoBehaviour
             uranus.RotateAround(centerPoint.position, Vector3.up, uranusOrbitSpeed * Time.deltaTime);
         if (neptune != null)
             neptune.RotateAround(centerPoint.position, Vector3.up, neptuneOrbitSpeed * Time.deltaTime);
+
+
+        //Dwarf Planet Orbits(With Oliptical Approximation)
         if (Pluto != null)
-            Pluto.RotateAround(centerPoint.position, Vector3.up, plutoOrbitSpeed * Time.deltaTime);
+            CalculateandApplyEllipticalOrbit(Pluto, plutosemiMajorAxis, plutosemiMinorAxis, plutoTilt, plutoOrbitSpeed, time);
+            Vector3 lastPos = Pluto.position;
+            Debug.DrawLine(lastPos, Pluto.position, Color.red, 100f);
+        //Pluto.RotateAround(centerPoint.position, Vector3.up, plutoOrbitSpeed * Time.deltaTime);
+        if (Eris != null)
+            Eris.RotateAround(centerPoint.position, Vector3.up, ErisOrbitSpeed * Time.deltaTime);
+        if (Haumea != null)
+            Haumea.RotateAround(centerPoint.position, Vector3.up, HaumeaOrbitSpeed * Time.deltaTime);
+        if (Makemake != null)
+            Makemake.RotateAround(centerPoint.position, Vector3.up, MakemakeOrbitSpeed * Time.deltaTime);
+        if (Orcus != null)
+            Orcus.RotateAround(centerPoint.position, Vector3.up, OrcusOrbitSpeed * Time.deltaTime);
         ToScale();
         retainAllignment();
 
@@ -125,6 +173,11 @@ public class FloatOrbitSystem : MonoBehaviour
         Transform neptune = SolarSystem.transform.Find("Neptune");
         Transform Ceres = SolarSystem.transform.Find("Ceres");
         Transform Pluto = SolarSystem.transform.Find("Pluto");
+        Transform Eris = SolarSystem.transform.Find("Eris");
+        Transform Haumea = SolarSystem.transform.Find("Haumea");
+        Transform Makemake = SolarSystem.transform.Find("Makemake");
+        Transform Orcus = SolarSystem.transform.Find("Orcus");
+
         Transform Sun = SolarSystem.transform;
         if (Sun != null)
             Sun.localScale = new Vector3(0.5f, 0.5f, 0.5f) * 2;
@@ -148,6 +201,15 @@ public class FloatOrbitSystem : MonoBehaviour
             Ceres.localScale = new Vector3(0.03f, 0.03f, 0.03f) * 2;
         if (Pluto != null)
             Pluto.localScale = new Vector3(0.04f, 0.04f, 0.04f) * 2;
+        if (Eris != null)
+            Eris.localScale = new Vector3(0.035f, 0.035f, 0.035f) * 2;
+        if (Haumea != null)
+            Haumea.localScale = new Vector3(0.03f, 0.03f, 0.03f) * 2;
+        if (Makemake != null)
+            Makemake.localScale = new Vector3(0.03f, 0.03f, 0.03f) * 2;
+        if (Orcus != null)
+            Orcus.localScale = new Vector3(0.03f, 0.03f, 0.03f) * 2;
+
     }
 
     private void retainAllignment()
@@ -194,5 +256,47 @@ public class FloatOrbitSystem : MonoBehaviour
 
             }
         }
+    }
+
+    private void CalculateandApplyEllipticalOrbit(Transform planet, float semiMajorAxis, float semiMinorAxis, float tiltAngle, float orbitSpeed, float time)
+    {
+        float orbitAngle = 0f;
+        float orbitspeedScaled = orbitSpeed * orbitScale;
+        float tilt = tiltAngle;
+
+        orbitAngle -= orbitSpeed * time;
+
+        float rad = orbitAngle * Mathf.Deg2Rad;
+
+        float x = semiMajorAxis * Mathf.Cos(rad);
+        float z = semiMinorAxis * Mathf.Sin(rad);
+
+        Quaternion rot = Quaternion.Euler(tilt, 0, 0);
+
+        Vector3 pos = rot * new Vector3(x, 0, z) * orbitScale;
+
+        planet.transform.position = centerPoint.position + pos;
+
+        int segments = 200;
+        float anglestep = 360f / segments;
+
+        Vector3 previousPoint = Vector3.zero;
+        bool hasPrev = false;
+        for (int i = 0; i <= segments; i++)
+        {
+            float angle = i * anglestep * Mathf.Deg2Rad;
+
+            float px = semiMajorAxis * Mathf.Cos(angle);
+            float pz = semiMinorAxis * Mathf.Sin(angle);
+
+            Vector3 point = new Vector3(px, 0, pz) * orbitScale;
+            if (hasPrev)
+            {
+                Debug.DrawLine(centerPoint.position + (rot * previousPoint), centerPoint.position + (rot * point), Color.white);
+            }
+            previousPoint = point;
+            hasPrev = true;
+        }
+
     }
 }

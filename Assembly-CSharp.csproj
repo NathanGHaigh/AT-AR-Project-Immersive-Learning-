@@ -68,6 +68,7 @@
     <Compile Include="Assets\Custom Scripts\FissionReaction.cs" />
     <Compile Include="Assets\Custom Scripts\SpawnPreset.cs" />
     <Compile Include="Assets\Settings\Project Configuration\SceneTemplate_RotateCube.cs" />
+    <Compile Include="Assets\Custom Scripts\PlanetAxisRotation.cs" />
     <Compile Include="Assets\Custom Scripts\TextFaceCamera.cs" />
     <Compile Include="Assets\Custom Scripts\RotateAtom.cs" />
     <Compile Include="Assets\MobileARTemplateAssets\Scripts\ARPlaneMeshVisualizerFader.cs" />

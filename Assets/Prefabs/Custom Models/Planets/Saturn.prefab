@@ -28,9 +28,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.00063945004, y: 0.00063945004, z: 0.00063945004}
+  m_LocalScale: {x: 0.0012724416, y: 0.0012724416, z: 0.0012724416}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 8577421565896373447}
   - {fileID: 823823541145824913}
   m_Father: {fileID: 7516592328053175089}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8ebc5cd599e289a48b35e2181d7e52c9, type: 2}
+  - {fileID: 2100000, guid: b54da196c7392a648b2600e6ea187350, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +99,7 @@ GameObject:
   - component: {fileID: 1624178370343714463}
   - component: {fileID: 6232893158454534256}
   m_Layer: 0
-  m_Name: Mercury_COL
+  m_Name: Saturn_COL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +115,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0007, y: 0.0007, z: 0.0007}
+  m_LocalScale: {x: 0.0015, y: 0.0015, z: 0.0015}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7516592328053175089}
@@ -206,7 +207,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mercury
+  m_text: 'Saturn
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -314,7 +317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.936}
+  m_AnchoredPosition: {x: 0, y: 0.661}
   m_SizeDelta: {x: 10, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1881549845316534767
@@ -407,7 +410,7 @@ GameObject:
   - component: {fileID: 2429892502777287438}
   - component: {fileID: 4751419022292204360}
   m_Layer: 0
-  m_Name: Mercury
+  m_Name: Saturn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,7 +426,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 87, y: 0, z: 0}
-  m_LocalScale: {x: 373.12, y: 373.12, z: 373.12}
+  m_LocalScale: {x: 475.92078, y: 475.92078, z: 475.92078}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 118075539633562356}
@@ -720,4 +723,70 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5258331117553129771, guid: eb9104ef66b7305468adb3697fdeed5e, type: 3}
   m_PrefabInstance: {fileID: 5285578177956445151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8107506296392667948
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7215756337117800453}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2e1e908fa7a9f5b469ed679a5c727fb7, type: 2}
+    - target: {fileID: 919132149155446097, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+      propertyPath: m_Name
+      value: Rings
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+--- !u!4 &8577421565896373447 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ddd2308c2781c474db88fd56aa14e57b, type: 3}
+  m_PrefabInstance: {fileID: 8107506296392667948}
   m_PrefabAsset: {fileID: 0}

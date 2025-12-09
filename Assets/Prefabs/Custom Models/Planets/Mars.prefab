@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.00063945004, y: 0.00063945004, z: 0.00063945004}
+  m_LocalScale: {x: 0.0012724416, y: 0.0012724416, z: 0.0012724416}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 823823541145824913}
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8ebc5cd599e289a48b35e2181d7e52c9, type: 2}
+  - {fileID: 2100000, guid: 47b4b1c31b92ee6449827544c33230ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1624178370343714463}
   - component: {fileID: 6232893158454534256}
   m_Layer: 0
-  m_Name: Mercury_COL
+  m_Name: Mars_COL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0007, y: 0.0007, z: 0.0007}
+  m_LocalScale: {x: 0.0015, y: 0.0015, z: 0.0015}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7516592328053175089}
@@ -206,7 +206,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mercury
+  m_text: 'Mars
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -314,7 +316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.936}
+  m_AnchoredPosition: {x: 0, y: 0.661}
   m_SizeDelta: {x: 10, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1881549845316534767
@@ -407,7 +409,7 @@ GameObject:
   - component: {fileID: 2429892502777287438}
   - component: {fileID: 4751419022292204360}
   m_Layer: 0
-  m_Name: Mercury
+  m_Name: Mars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,7 +425,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 87, y: 0, z: 0}
-  m_LocalScale: {x: 373.12, y: 373.12, z: 373.12}
+  m_LocalScale: {x: 297.2647, y: 297.2647, z: 297.2647}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 118075539633562356}
