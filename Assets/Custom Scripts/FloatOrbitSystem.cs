@@ -38,6 +38,7 @@ public class FloatOrbitSystem : MonoBehaviour
     //Dwarf Planet Rotation Speeds and Orbital Parameters
     [SerializeField]
     float orbitScale = 0.01f;
+    [Header("Pluto Orbital Parameters")]
     //Pluto
     [SerializeField]
     private float plutoOrbitSpeed = 4.74f;
@@ -48,15 +49,47 @@ public class FloatOrbitSystem : MonoBehaviour
     [SerializeField]
     private float plutoTilt = 17f;
 
+    [Header("MakeMake Orbital Parameters")]
     //Makemake
     [SerializeField]
     private float MakemakeOrbitSpeed = 4.0f;
     [SerializeField]
+    private float MakemakesemiMajorAxis = 45.8f;
+    [SerializeField]
+    private float MakemakesemiMinorAxis = 43f;
+    [SerializeField]
+    private float MakemakeTilt = 29f;
+
+    [Header("Haumea Orbital Parameters")]
+    [SerializeField]
     private float HaumeaOrbitSpeed = 3.5f;
+    [SerializeField]
+    private float HaumeamiMajorAxis = 43.1f;
+    [SerializeField]
+    private float HaumeamiMinorAxis = 41f;
+    [SerializeField]
+    private float HaumeaTilt = 28f;
+
+    [Header("Eris Orbital Parameters")]
     [SerializeField]
     private float ErisOrbitSpeed = 3.0f;
     [SerializeField]
+    private float ErissemiMajorAxis = 67.7f;
+    [SerializeField]
+    private float ErissemiMinorAxis = 50f;
+    [SerializeField]
+    private float ErisTilt = 44f;
+
+    [Header("Orcus Orbital Parameters")]
+    [SerializeField]
     private float OrcusOrbitSpeed = 2.5f;
+    [SerializeField]
+    private float OrcussemiMajorAxis = 39.4f;
+    [SerializeField]
+    private float OrcussemiMinorAxis = 37f;
+    [SerializeField]
+    private float OrcusTilt = 20f;
+
 
     //Material and Prefab References
     [SerializeField]
@@ -144,17 +177,24 @@ public class FloatOrbitSystem : MonoBehaviour
         //Dwarf Planet Orbits(With Oliptical Approximation)
         if (Pluto != null)
             CalculateandApplyEllipticalOrbit(Pluto, plutosemiMajorAxis, plutosemiMinorAxis, plutoTilt, plutoOrbitSpeed, time);
-            Vector3 lastPos = Pluto.position;
-            Debug.DrawLine(lastPos, Pluto.position, Color.red, 100f);
-        //Pluto.RotateAround(centerPoint.position, Vector3.up, plutoOrbitSpeed * Time.deltaTime);
+
+            //Pluto.RotateAround(centerPoint.position, Vector3.up, plutoOrbitSpeed * Time.deltaTime);
         if (Eris != null)
-            Eris.RotateAround(centerPoint.position, Vector3.up, ErisOrbitSpeed * Time.deltaTime);
+            CalculateandApplyEllipticalOrbit(Eris, ErissemiMajorAxis, ErissemiMinorAxis, ErisTilt, ErisOrbitSpeed, time);
+
+        //Eris.RotateAround(centerPoint.position, Vector3.up, ErisOrbitSpeed * Time.deltaTime);
         if (Haumea != null)
-            Haumea.RotateAround(centerPoint.position, Vector3.up, HaumeaOrbitSpeed * Time.deltaTime);
+            CalculateandApplyEllipticalOrbit(Haumea, HaumeamiMajorAxis, HaumeamiMinorAxis, HaumeaTilt, HaumeaOrbitSpeed, time);
+
+        //Haumea.RotateAround(centerPoint.position, Vector3.up, HaumeaOrbitSpeed * Time.deltaTime);
         if (Makemake != null)
-            Makemake.RotateAround(centerPoint.position, Vector3.up, MakemakeOrbitSpeed * Time.deltaTime);
+            CalculateandApplyEllipticalOrbit(Makemake, MakemakesemiMajorAxis, MakemakesemiMinorAxis, MakemakeTilt, MakemakeOrbitSpeed, time);
+
+        //Makemake.RotateAround(centerPoint.position, Vector3.up, MakemakeOrbitSpeed * Time.deltaTime);
         if (Orcus != null)
-            Orcus.RotateAround(centerPoint.position, Vector3.up, OrcusOrbitSpeed * Time.deltaTime);
+            CalculateandApplyEllipticalOrbit(Orcus, OrcussemiMajorAxis, OrcussemiMinorAxis, OrcusTilt, OrcusOrbitSpeed, time);
+
+        //Orcus.RotateAround(centerPoint.position, Vector3.up, OrcusOrbitSpeed * Time.deltaTime);
         ToScale();
         retainAllignment();
 
