@@ -48,6 +48,8 @@ public class FloatOrbitSystem : MonoBehaviour
     private float plutosemiMinorAxis = 38.86f;
     [SerializeField]
     private float plutoTilt = 17f;
+    [SerializeField]
+    Vector3 PlutoOrbitOffset = new Vector3(0, 0, 0);
 
     [Header("MakeMake Orbital Parameters")]
     //Makemake
@@ -59,6 +61,8 @@ public class FloatOrbitSystem : MonoBehaviour
     private float MakemakesemiMinorAxis = 43f;
     [SerializeField]
     private float MakemakeTilt = 29f;
+    [SerializeField]
+    Vector3 MakemakeOrbitOffset = new Vector3(0, 0, 0);
 
     [Header("Haumea Orbital Parameters")]
     [SerializeField]
@@ -69,6 +73,8 @@ public class FloatOrbitSystem : MonoBehaviour
     private float HaumeamiMinorAxis = 41f;
     [SerializeField]
     private float HaumeaTilt = 28f;
+    [SerializeField]
+    Vector3 HaumeaOrbitOffset = new Vector3(0, 0, 0);
 
     [Header("Eris Orbital Parameters")]
     [SerializeField]
@@ -79,6 +85,8 @@ public class FloatOrbitSystem : MonoBehaviour
     private float ErissemiMinorAxis = 50f;
     [SerializeField]
     private float ErisTilt = 44f;
+    [SerializeField]
+    Vector3 ErisOrbitOffset = new Vector3(0, 0, 0);
 
     [Header("Orcus Orbital Parameters")]
     [SerializeField]
@@ -89,6 +97,8 @@ public class FloatOrbitSystem : MonoBehaviour
     private float OrcussemiMinorAxis = 37f;
     [SerializeField]
     private float OrcusTilt = 20f;
+    [SerializeField]
+    Vector3 OrcusOrbitOffset = new Vector3(0, 0, 0);
 
 
     //Material and Prefab References
@@ -176,23 +186,23 @@ public class FloatOrbitSystem : MonoBehaviour
 
         //Dwarf Planet Orbits(With Oliptical Approximation)
         if (Pluto != null)
-            CalculateandApplyEllipticalOrbit(Pluto, plutosemiMajorAxis, plutosemiMinorAxis, plutoTilt, plutoOrbitSpeed, time);
+            CalculateandApplyEllipticalOrbit(Pluto, plutosemiMajorAxis, plutosemiMinorAxis, plutoTilt, plutoOrbitSpeed, PlutoOrbitOffset, time);
 
             //Pluto.RotateAround(centerPoint.position, Vector3.up, plutoOrbitSpeed * Time.deltaTime);
         if (Eris != null)
-            CalculateandApplyEllipticalOrbit(Eris, ErissemiMajorAxis, ErissemiMinorAxis, ErisTilt, ErisOrbitSpeed, time);
+            CalculateandApplyEllipticalOrbit(Eris, ErissemiMajorAxis, ErissemiMinorAxis, ErisTilt, ErisOrbitSpeed, ErisOrbitOffset, time);
 
         //Eris.RotateAround(centerPoint.position, Vector3.up, ErisOrbitSpeed * Time.deltaTime);
         if (Haumea != null)
-            CalculateandApplyEllipticalOrbit(Haumea, HaumeamiMajorAxis, HaumeamiMinorAxis, HaumeaTilt, HaumeaOrbitSpeed, time);
+            CalculateandApplyEllipticalOrbit(Haumea, HaumeamiMajorAxis, HaumeamiMinorAxis, HaumeaTilt, HaumeaOrbitSpeed, HaumeaOrbitOffset, time);
 
         //Haumea.RotateAround(centerPoint.position, Vector3.up, HaumeaOrbitSpeed * Time.deltaTime);
         if (Makemake != null)
-            CalculateandApplyEllipticalOrbit(Makemake, MakemakesemiMajorAxis, MakemakesemiMinorAxis, MakemakeTilt, MakemakeOrbitSpeed, time);
+            CalculateandApplyEllipticalOrbit(Makemake, MakemakesemiMajorAxis, MakemakesemiMinorAxis, MakemakeTilt, MakemakeOrbitSpeed, MakemakeOrbitOffset, time);
 
         //Makemake.RotateAround(centerPoint.position, Vector3.up, MakemakeOrbitSpeed * Time.deltaTime);
         if (Orcus != null)
-            CalculateandApplyEllipticalOrbit(Orcus, OrcussemiMajorAxis, OrcussemiMinorAxis, OrcusTilt, OrcusOrbitSpeed, time);
+            CalculateandApplyEllipticalOrbit(Orcus, OrcussemiMajorAxis, OrcussemiMinorAxis, OrcusTilt, OrcusOrbitSpeed, OrcusOrbitOffset, time);
 
         //Orcus.RotateAround(centerPoint.position, Vector3.up, OrcusOrbitSpeed * Time.deltaTime);
         ToScale();
@@ -298,13 +308,15 @@ public class FloatOrbitSystem : MonoBehaviour
         }
     }
 
-    private void CalculateandApplyEllipticalOrbit(Transform planet, float semiMajorAxis, float semiMinorAxis, float tiltAngle, float orbitSpeed, float time)
+    private void CalculateandApplyEllipticalOrbit(Transform planet, float semiMajorAxis, float semiMinorAxis, float tiltAngle, float orbitSpeed, Vector3 OrbitOffset, float time)
     {
         float orbitAngle = 0f;
         float orbitspeedScaled = orbitSpeed * orbitScale;
         float tilt = tiltAngle;
 
         orbitAngle -= orbitSpeed * time;
+
+        Vector3 orbitOffset = OrbitOffset;
 
         float rad = orbitAngle * Mathf.Deg2Rad;
 
@@ -315,7 +327,13 @@ public class FloatOrbitSystem : MonoBehaviour
 
         Vector3 pos = rot * new Vector3(x, 0, z) * orbitScale;
 
-        planet.transform.position = centerPoint.position + pos;
+        pos = Quaternion.Euler(0, tilt, 0) * pos;
+
+        planet.transform.position = centerPoint.position + pos + orbitOffset;
+
+
+
+
 
         int segments = 200;
         float anglestep = 360f / segments;
@@ -332,7 +350,9 @@ public class FloatOrbitSystem : MonoBehaviour
             Vector3 point = new Vector3(px, 0, pz) * orbitScale;
             if (hasPrev)
             {
-                Debug.DrawLine(centerPoint.position + (rot * previousPoint), centerPoint.position + (rot * point), Color.white);
+                Debug.DrawLine(centerPoint.position + Quaternion.Euler(0, tilt, 0) * (rot * previousPoint) + orbitOffset,
+                               centerPoint.position + Quaternion.Euler(0, tilt, 0) * (rot * point) + orbitOffset,
+                               Color.white);
             }
             previousPoint = point;
             hasPrev = true;
