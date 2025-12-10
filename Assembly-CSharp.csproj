@@ -63,14 +63,17 @@
   <ItemGroup>
     <Compile Include="Assets\MobileARTemplateAssets\UI\Scripts\CutoutMaskUI.cs" />
     <Compile Include="Assets\MobileARTemplateAssets\Scripts\ARTemplateMenuManager.cs" />
-    <Compile Include="Assets\Custom Scripts\FloatOrbitSystem.cs" />
+    <Compile Include="Assets\Custom Scripts\Radiation Scripts\BetaDecay.cs" />
+    <Compile Include="Assets\Custom Scripts\Space Scripts\PlanetAxisRotation.cs" />
     <Compile Include="Assets\MobileARTemplateAssets\Scripts\GoalManager.cs" />
-    <Compile Include="Assets\Custom Scripts\FissionReaction.cs" />
     <Compile Include="Assets\Custom Scripts\SpawnPreset.cs" />
     <Compile Include="Assets\Settings\Project Configuration\SceneTemplate_RotateCube.cs" />
-    <Compile Include="Assets\Custom Scripts\PlanetAxisRotation.cs" />
+    <Compile Include="Assets\Custom Scripts\Radiation Scripts\AlphaDecay.cs" />
     <Compile Include="Assets\Custom Scripts\TextFaceCamera.cs" />
-    <Compile Include="Assets\Custom Scripts\RotateAtom.cs" />
+    <Compile Include="Assets\Custom Scripts\Radiation Scripts\GammaDecay.cs" />
+    <Compile Include="Assets\Custom Scripts\Atomic Scripts\RotateAtom.cs" />
+    <Compile Include="Assets\Custom Scripts\Radiation Scripts\FissionReaction.cs" />
+    <Compile Include="Assets\Custom Scripts\Space Scripts\FloatOrbitSystem.cs" />
     <Compile Include="Assets\MobileARTemplateAssets\Scripts\ARPlaneMeshVisualizerFader.cs" />
     <Compile Include="Assets\Custom Scripts\DestroySelf.cs" />
   </ItemGroup>
