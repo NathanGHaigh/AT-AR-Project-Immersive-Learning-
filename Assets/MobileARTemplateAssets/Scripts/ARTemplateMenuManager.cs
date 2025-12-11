@@ -29,6 +29,15 @@ namespace UnityEngine.XR.Templates.AR
         }
 
         [SerializeField]
+        public Button m_OnSwitch;
+
+        public Button onSwitch
+        {
+            get => m_OnSwitch;
+            set => m_OnSwitch = value;
+        }
+
+        [SerializeField]
         [Tooltip("Button that deletes a selected object.")]
         Button m_DeleteButton;
 
@@ -592,7 +601,15 @@ namespace UnityEngine.XR.Templates.AR
             if (currentFocusedObject != null)
             {
                 Destroy(currentFocusedObject.transform.gameObject);
+                CircuitFunctionUnCall();
             }
+        }
+
+        void CheckFocusInteractable()
+        {
+            var currentFocusedObject = m_InteractionGroup.focusInteractable;
+            UnityEngine.Debug.Log(currentFocusedObject);
+                
         }
 
         void InitializeDebugMenuOffsets()
@@ -744,6 +761,19 @@ namespace UnityEngine.XR.Templates.AR
                     fader.visualizeSurfaces = m_VisualizePlanes;
                 }
             }
+        }
+
+        public void CircuitFunctionCall()
+        {
+            //Debug.Log("This is a circuit function call.");
+            m_OnSwitch.enabled = true;
+            m_OnSwitch.gameObject.SetActive(true);
+        }
+        public void CircuitFunctionUnCall()
+        {
+            //Debug.Log("This is a circuit function call.");
+            m_OnSwitch.enabled = false;
+            m_OnSwitch.gameObject.SetActive(false);
         }
     }
 }
