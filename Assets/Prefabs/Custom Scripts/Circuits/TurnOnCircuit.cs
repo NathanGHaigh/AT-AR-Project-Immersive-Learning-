@@ -8,7 +8,7 @@ public class TurnOnCircuit : MonoBehaviour
     XRInteractionGroup m_InteractionGroup;
 
     [SerializeField]
-    ARTemplateMenuManager m_MenuManager;
+    GameObject On_Button;
 
     [SerializeField]
     bool m_IsCircuitOn = false;
@@ -33,17 +33,12 @@ public class TurnOnCircuit : MonoBehaviour
     private void OnDisable()
     {
         RemovedButtonListener();
-        if(m_MenuManager != null)
-        {
-            m_MenuManager.CircuitFunctionUnCall();
-        }
-
     }
+
     void Start()
     {
         m_GameObject = this.gameObject;
         m_InteractionGroup = FindFirstObjectByType<XRInteractionGroup>();
-        m_MenuManager = FindFirstObjectByType<ARTemplateMenuManager>();
 
         EnsureButtonListener();
     }
@@ -63,15 +58,15 @@ public class TurnOnCircuit : MonoBehaviour
 
         if (m_InteractionGroup == null)
         {
+            On_Button.SetActive(false);
             RemovedButtonListener();
-            m_MenuManager.CircuitFunctionUnCall();
             return;
         }
         
         var focusedObject = m_InteractionGroup.focusInteractable;
         if (focusedObject == null)
         {
-            m_MenuManager.CircuitFunctionUnCall();
+            On_Button.SetActive(false);
             return;
         }
 
@@ -84,15 +79,19 @@ public class TurnOnCircuit : MonoBehaviour
 
         if (focusedGameObject == null)
         {
-            m_MenuManager.CircuitFunctionUnCall();
+            On_Button.SetActive(false);
             return;
         }
 
         if(focusedGameObject == m_GameObject)
         {
             //UnityEngine.Debug.Log("Turn on the circuit: " + m_GameObject.name);
-            m_MenuManager.CircuitFunctionCall();
             // Do something here
+            On_Button.SetActive(true);
+        }
+        if(focusedGameObject != m_GameObject)
+        {
+            On_Button.SetActive(false);
         }
     }
     void CircuitFunctionCall()
@@ -105,10 +104,9 @@ public class TurnOnCircuit : MonoBehaviour
     {
         if(m_listenerAdded)
             return;
-        if(m_MenuManager != null && m_MenuManager.m_OnSwitch != null)
+        if(On_Button != null)
         {
-            m_MenuManager.m_OnSwitch.onClick.RemoveListener(CircuitFunctionCall);
-            m_MenuManager.m_OnSwitch.onClick.AddListener(CircuitFunctionCall);
+            On_Button.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(CircuitFunctionCall);
             m_listenerAdded = true;
         }
     }
@@ -117,9 +115,9 @@ public class TurnOnCircuit : MonoBehaviour
     {
         if(!m_listenerAdded)
             return;
-        if(m_MenuManager != null && m_MenuManager.m_OnSwitch != null)
+        if(On_Button != null)
         {
-            m_MenuManager.m_OnSwitch.onClick.RemoveListener(CircuitFunctionCall);
+            On_Button.GetComponent<UnityEngine.UI.Button>().onClick.RemoveListener(CircuitFunctionCall);
         }
         m_listenerAdded = false;
     }
