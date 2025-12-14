@@ -9,6 +9,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
     /// </summary>
     public class ObjectSpawner : MonoBehaviour
     {
+
+        public static ObjectSpawner instance { get; private set; }
         [SerializeField]
         [Tooltip("The camera that objects will face when spawned. If not set, defaults to the main camera.")]
         Camera m_CameraToFace;
@@ -158,6 +160,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         void Awake()
         {
             EnsureFacingCamera();
+            instance = this;
         }
 
         void EnsureFacingCamera()
