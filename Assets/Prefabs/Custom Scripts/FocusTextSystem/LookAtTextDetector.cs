@@ -1,12 +1,15 @@
 using UnityEngine;
 
+
 public class LookAtTextDetector : MonoBehaviour
 {
     public Transform textTransform;
     public GameObject textMarker;
     public float showScale = 1.2f;
     public float scaleSpeed = 2.0f;
+    public float textLingerTime = 3.0f;
     public float RayCastDistance = 5.0f;
+    float lastLookAtTime = -Mathf.Infinity;
     public LayerMask MarkerLayer;
 
     Camera cam;
@@ -40,22 +43,21 @@ public class LookAtTextDetector : MonoBehaviour
 
         if (Physics.Raycast(raycast, out hitInfo, RayCastDistance, MarkerLayer, QueryTriggerInteraction.Collide))
         {
-            if (hitInfo.collider.transform == textMarker.transform)
+            if (hitInfo.collider != null && hitInfo.collider.transform == textMarker.transform)
             {
                 isLookingAtText = true;
+                lastLookAtTime = Time.time;
                 return;
             }
         }
 
         Debug.DrawRay(raycast.origin, raycast.direction * RayCastDistance, Color.red);
-        Debug.Log(hitInfo.transform);
-        Debug.Log(hitInfo.collider);
-
     }
     void HandleTextScaling()
     {
         Debug.Log("Scaling Text: " + isLookingAtText);
-        Vector3 targetScale = isLookingAtText ? Vector3.one * showScale : Vector3.zero;
+        bool shouldShow = isLookingAtText || (Time.time - lastLookAtTime) < textLingerTime;
+        Vector3 targetScale = shouldShow ? Vector3.one * showScale : Vector3.zero;
         textTransform.localScale = Vector3.Lerp(textTransform.localScale, targetScale, Time.deltaTime * scaleSpeed);
     }
 
@@ -65,4 +67,5 @@ public class LookAtTextDetector : MonoBehaviour
 
         textTransform.position = textMarker.transform.position + directiontocamera * 0.1f;
     }
+
 }
