@@ -101,8 +101,8 @@
     <Compile Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\Editor\Core\Environments\Client\Http\IsolatedJsonConvert.cs" />
     <Compile Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\Editor\Core\Environments\Client\Models\UnityOrganizationMemberV1.cs" />
     <Compile Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\Editor\Core\Environments\Analytics\EnvironmentAnalyticsSender.cs" />
-    <Compile Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\Editor\Core\Environments\Client\Models\UnityGetUserPermissions200Response.cs" />
     <Compile Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\Editor\Core\Environments\Client\Models\UnityUpdateOrganizationRequest.cs" />
+    <Compile Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\Editor\Core\Environments\Client\Models\UnityGetUserPermissions200Response.cs" />
     <Compile Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\Editor\Core\Environments\Client\Apis\DefaultApi.cs" />
     <Compile Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\Editor\Core\Environments\Client\Models\UnityUserGuestProjectV1.cs" />
     <Compile Include="Library\PackageCache\com.unity.services.core@9e81a5e38245\Editor\Core\Environments\Client\Http\ResponseHandler.cs" />

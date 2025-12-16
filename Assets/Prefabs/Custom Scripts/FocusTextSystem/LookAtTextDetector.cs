@@ -5,7 +5,10 @@ public class LookAtTextDetector : MonoBehaviour
 {
     public Transform textTransform;
     public GameObject textMarker;
-    public float showScale = 1.2f;
+    [SerializeField]
+    public GameObject Visuals;
+
+    public float showScale = 0.2f;
     public float scaleSpeed = 2.0f;
     public float textLingerTime = 3.0f;
     public float RayCastDistance = 5.0f;
@@ -19,6 +22,8 @@ public class LookAtTextDetector : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+
+        // Initialize all text scales to zero
         textTransform.localScale = Vector3.zero;
     }
 
@@ -27,6 +32,11 @@ public class LookAtTextDetector : MonoBehaviour
     {
         CheckLookedAt();
         HandleTextScaling();
+
+        if(Visuals.activeSelf == false)
+        {
+            textTransform.localScale = Vector3.zero;
+        }
     }
 
     void LateUpdate()

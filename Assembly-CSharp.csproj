@@ -73,8 +73,11 @@
     <Compile Include="Assets\Prefabs\Custom Scripts\DestroySelf.cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\Radiation Scripts\BetaDecay.cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\FocusTextSystem\LookAtTextDetector.cs" />
+    <Compile Include="Assets\Prefabs\Custom Scripts\FocusTextSystem\LookAtTextDetector(Array).cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\Radiation Scripts\GammaDecay.cs" />
+    <Compile Include="Assets\Prefabs\Custom Scripts\CrosshairControl.cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\Circuits\TurnOnCircuit.cs" />
+    <Compile Include="Assets\Prefabs\Custom Scripts\IconFaceCamera.cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\Radiation Scripts\AlphaDecay.cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\Space Scripts\FloatOrbitSystem.cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\SpawnPreset.cs" />
@@ -1204,6 +1207,10 @@
       <Project>{A4D7D6D8-7EDF-554C-CB8B-0985D5219582}</Project>
       <Name>UnityEngine.Purchasing.SecurityStub</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.VisualEffectGraph.Editor.csproj">
+      <Project>{868ECF0C-F620-3A6C-3A86-B81BB8A351D9}</Project>
+      <Name>Unity.VisualEffectGraph.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Collections.Editor.csproj">
       <Project>{608972AE-7361-D438-D762-5378CB94C6E5}</Project>
       <Name>Unity.Collections.Editor</Name>
@@ -1431,6 +1438,10 @@
     <ProjectReference Include="Unity.InternalAPIEngineBridge.007.csproj">
       <Project>{534CB8BF-9B75-96D9-178A-A4CACC6C3A57}</Project>
       <Name>Unity.InternalAPIEngineBridge.007</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualEffectGraph.Runtime.csproj">
+      <Project>{C4FCDAD3-0A2E-D003-3B63-75B17817AC26}</Project>
+      <Name>Unity.VisualEffectGraph.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.ARKit.FaceTracking.csproj">
       <Project>{FE5158DD-6BFF-406C-AA6D-03297564F255}</Project>

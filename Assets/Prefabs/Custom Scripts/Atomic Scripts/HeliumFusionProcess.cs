@@ -1,8 +1,10 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using UnityEngine.XR.Templates.AR;
 using UnityEngine.XR.Interaction.Toolkit.Utilities;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
+using TMPro;
 
 enum FusionStates
 {
@@ -14,6 +16,12 @@ enum FusionStates
 
 public class HeliumFusionProcess : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject Fusing_Text;
+
+    [SerializeField]
+    private float fusionDuration = 2.0f; // seconds to fuse
+
     [SerializeField]
     private GameObject self;
 
@@ -37,6 +45,9 @@ public class HeliumFusionProcess : MonoBehaviour
 
     [SerializeField]
     private GameObject objectSpawner;
+
+    [SerializeField]
+    private float hydrogenSpawnDistance = 0.5f; // distance to separate spawned hydrogens
 
 
     // Prevent double processing
@@ -167,16 +178,8 @@ public class HeliumFusionProcess : MonoBehaviour
                     if (TryClaimFusion(otherProcess))
                     {
                         UnityEngine.Debug.Log("Made Deuterium");
-                        if (DeuteriumPrefab != null)
-                        {
-                            Instantiate(DeuteriumPrefab, self.transform.position, Quaternion.identity, objectSpawner.transform);
-                            UpdateTag();
-                        }
-
-                        if (otherProcess != null)
-                            Destroy(otherProcess.gameObject);
-
-                        Destroy(self);
+                        // start coroutine to show text and delay actual fusion
+                        StartCoroutine(DoFusionSequence(otherObj, otherProcess, DeuteriumPrefab, false));
                     }
 
                     return;
@@ -189,16 +192,7 @@ public class HeliumFusionProcess : MonoBehaviour
                     if (TryClaimFusion(otherProcess))
                     {
                         UnityEngine.Debug.Log("Made Helium-3");
-                        if (Helium3Prefab != null)
-                        {
-                            Instantiate(Helium3Prefab, self.transform.position, Quaternion.identity, objectSpawner.transform);
-                            UpdateTag();
-                        }
-
-                        if (otherProcess != null)
-                            Destroy(otherProcess.gameObject);
-
-                        Destroy(self);
+                        StartCoroutine(DoFusionSequence(otherObj, otherProcess, Helium3Prefab, false));
                     }
 
                     return;
@@ -210,16 +204,7 @@ public class HeliumFusionProcess : MonoBehaviour
                     if (TryClaimFusion(otherProcess))
                     {
                         UnityEngine.Debug.Log("Made Helium");
-                        if (HeliumPrefab != null)
-                        {
-                            Instantiate(HeliumPrefab, self.transform.position, Quaternion.identity, objectSpawner.transform);
-                            UpdateTag();
-                        }
-
-                        if (otherProcess != null)
-                            Destroy(otherProcess.gameObject);
-
-                        Destroy(self);
+                        StartCoroutine(DoFusionSequence(otherObj, otherProcess, HeliumPrefab, true));
                     }
 
                     return;
@@ -229,6 +214,90 @@ public class HeliumFusionProcess : MonoBehaviour
                 UnityEngine.Debug.Log("Helium is stable. No further fusion possible.");
                 break;
         }
+    }
+
+    private IEnumerator DoFusionSequence(GameObject otherObj, HeliumFusionProcess otherProcess, GameObject resultPrefab, bool spawnHydrogenPair)
+    {
+        // Show fusing UI
+        GameObject ui = null;
+              
+        if (resultPrefab == DeuteriumPrefab)
+        {
+            Fusing_Text.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "Fusing 2 Hydrogen to form Deuterium";
+            ui = Instantiate(Fusing_Text, self.transform.position, Quaternion.identity, objectSpawner.transform);
+        }
+        else if (resultPrefab == Helium3Prefab)
+        {
+            Fusing_Text.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "Fusing 1 Hydrogen and 1 Deuterium to form Helium-3";
+            ui = Instantiate(Fusing_Text, self.transform.position, Quaternion.identity, objectSpawner.transform);
+        }
+        else if (resultPrefab == HeliumPrefab)
+        {
+            Fusing_Text.GetComponentInChildren<Canvas>().GetComponentInChildren<TextMeshProUGUI>().text = "Fusing 2 Helium-3 to form Helium and 2 Hydrogen";
+            ui = Instantiate(Fusing_Text, self.transform.position, Quaternion.identity, objectSpawner.transform);
+        }
+
+
+        //Disables UIs and Renderers of both objects --------------------------------------------------//
+        var Name_UI_OtherObj = otherObj.transform.parent.gameObject.transform.Find("Canvas").gameObject;
+        var Name_UI = self.transform.Find("Canvas").gameObject;
+        Name_UI.SetActive(false);
+        Name_UI_OtherObj.SetActive(false);
+
+        var myRenderer = self.transform.Find("Visuals").gameObject;
+        myRenderer.SetActive(false);
+        var otherRenderer = otherObj.transform.parent.gameObject.transform.Find("Visuals").gameObject;
+        otherRenderer.SetActive(false);
+        //----------------------------------------------------------------------------------------------//
+
+        // wait for fusion duration
+        yield return new WaitForSeconds(fusionDuration);
+
+        // instantiate result
+        if (resultPrefab != null)
+        {
+            if (objectSpawner != null)
+                Instantiate(resultPrefab, ui.transform.position, Quaternion.identity, objectSpawner.transform);
+            else
+                Instantiate(resultPrefab, self.transform.position, Quaternion.identity);
+
+            UpdateTag();
+        }
+
+        // spawn hydrogen pair for Helium result
+        if (spawnHydrogenPair && HydrogenPrefab != null)
+        {
+            Vector3 dir = Vector3.right;
+            if (otherProcess != null)
+            {
+                Vector3 diff = (self.transform.position - otherProcess.transform.position);
+                if (diff.sqrMagnitude > 0.0001f)
+                    dir = diff.normalized;
+            }
+
+            Vector3 spawnPosA = self.transform.position + dir * hydrogenSpawnDistance;
+            Vector3 spawnPosB = self.transform.position - dir * hydrogenSpawnDistance;
+
+            if (objectSpawner != null)
+            {
+                Instantiate(HydrogenPrefab, spawnPosA, Quaternion.identity, objectSpawner.transform);
+                Instantiate(HydrogenPrefab, spawnPosB, Quaternion.identity, objectSpawner.transform);
+            }
+            else
+            {
+                Instantiate(HydrogenPrefab, spawnPosA, Quaternion.identity);
+                Instantiate(HydrogenPrefab, spawnPosB, Quaternion.identity);
+            }
+        }
+
+        // cleanup old objects
+        if (otherProcess != null)
+            Destroy(otherProcess.gameObject);
+
+        Destroy(self);
+
+        if (ui != null)
+            Destroy(ui);
     }
 
     private void UpdateTag()

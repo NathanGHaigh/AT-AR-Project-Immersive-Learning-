@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.9f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Plugins\DualShock\DualShockGamepad.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Devices\Commands\DisableDeviceCommand.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Controls\TouchControl.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Devices\Commands\QueryEnabledStateCommand.cs" />
@@ -248,8 +249,8 @@
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Controls\InputControlExtensions.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Controls\InputProcessor.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Actions\Interactions\SlowTapInteraction.cs" />
-    <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Controls\Processors\NormalizeVector2Processor.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Devices\Remote\InputRemoting.cs" />
+    <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Controls\Processors\NormalizeVector2Processor.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Editor\Dialog.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Utilities\PrimitiveValue.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Editor\ControlPicker\InputControlDropdownItem.cs" />
@@ -462,7 +463,6 @@
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Utilities\Observables\SelectManyObservable.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Devices\InputDeviceDescription.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Editor\Analytics\InputActionsEditorSessionAnalytic.cs" />
-    <Compile Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Plugins\DualShock\DualShockGamepad.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library\PackageCache\com.unity.inputsystem@7fe8299111a7\InputSystem\Editor\UITKAssetEditor\PackageResources\ControlSchemeEditor.uxml" />

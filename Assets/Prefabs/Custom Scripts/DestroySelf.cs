@@ -8,7 +8,7 @@ public class DestroySelf : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        despawn_timer = 3.0f;
+        despawn_timer = 2.0f;
         
     }
 

@@ -113,8 +113,8 @@
     <Compile Include="Library\PackageCache\com.unity.purchasing@649c6c7b3b1b\Editor\Analytics\Events\IEditorAnalyticsEvent.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@649c6c7b3b1b\Editor\UdpInstaller.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@649c6c7b3b1b\Editor\Analytics\Helpers\GenericEditorMenuItemClickEventSenderHelpers.cs" />
-    <Compile Include="Library\PackageCache\com.unity.purchasing@649c6c7b3b1b\Editor\ServiceProjectSettings\Entity\Consts\UIResourceUtils.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@649c6c7b3b1b\Editor\AppleXMLProductCatalogExporter.cs" />
+    <Compile Include="Library\PackageCache\com.unity.purchasing@649c6c7b3b1b\Editor\ServiceProjectSettings\Entity\Consts\UIResourceUtils.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@649c6c7b3b1b\Editor\ServiceProjectSettings\Entity\Consts\SettingsUIConstants.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@649c6c7b3b1b\Editor\ServiceProjectSettings\PurchasingSettingsKeywords.cs" />
     <Compile Include="Library\PackageCache\com.unity.purchasing@649c6c7b3b1b\Editor\Obfuscation\Entity\TangleFileConsts.cs" />

@@ -163,8 +163,8 @@
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Runtime\AffordanceSystem\Receiver\Rendering\Vector4MaterialPropertyAffordanceReceiver.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Runtime\AffordanceSystem\Receiver\BaseAsyncAffordanceStateReceiver.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Runtime\AffordanceSystem\Jobs\TweenJobData.cs" />
-    <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Runtime\UI\PointerModel.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Runtime\AffordanceSystem\Rendering\MaterialInstanceHelper.cs" />
+    <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Runtime\UI\PointerModel.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Runtime\Locomotion\Turning\SnapTurnProvider.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Runtime\Interaction\Transformers\XRLegacyGrabTransformer.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Runtime\Locomotion\XRMovableBody.cs" />

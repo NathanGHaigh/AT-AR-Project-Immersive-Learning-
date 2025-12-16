@@ -8,17 +8,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.001
-    second: {fileID: 2100000, guid: 97fa64e7a426b5948af14090f8be91ed, type: 2}
+    second: {fileID: 2100000, guid: 6f372a04500201341832b7068f371206, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.004
-    second: {fileID: 2100000, guid: fdbcc620234a1154992e30c7ab6e72a5, type: 2}
+    second: {fileID: 2100000, guid: 00c56a2a9675f824ab980e5e273c0fd6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.007
-    second: {fileID: 2100000, guid: 6546b649333235140af1c62aa876d015, type: 2}
+    second: {fileID: 2100000, guid: 24c9b42d68e759c4fbc654480e32c65b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pro_Neu
+    second: {fileID: 2100000, guid: 3d6632140da0959489245844efff275b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pro_Neu.001
+    second: {fileID: 2100000, guid: fbf6cd25ae02c32498c448905234863b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -110,7 +120,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

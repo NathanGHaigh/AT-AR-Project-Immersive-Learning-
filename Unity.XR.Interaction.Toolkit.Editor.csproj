@@ -113,8 +113,8 @@
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Editor\Utilities\XRInteractionEditorGUI.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Editor\Feedback\SimpleHapticFeedbackEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Editor\Locomotion\Teleportation\TeleportationAnchorEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Editor\Utilities\XRInteractionEditorUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Editor\Locomotion\Jump\JumpProviderEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Editor\Utilities\XRInteractionEditorUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Editor\Debugger\XRInputDevicesTreeView.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Editor\Inputs\Readers\InputFeatureUsageStringPropertyDrawer.cs" />
     <Compile Include="Library\PackageCache\com.unity.xr.interaction.toolkit@76258c00be3e\Editor\Locomotion\Teleportation\TeleportationAreaEditor.cs" />
