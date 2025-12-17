@@ -65,7 +65,7 @@ public class LookAtTextDetector : MonoBehaviour
     }
     void HandleTextScaling()
     {
-        Debug.Log("Scaling Text: " + isLookingAtText);
+        //Debug.Log("Scaling Text: " + isLookingAtText);
         bool shouldShow = isLookingAtText || (Time.time - lastLookAtTime) < textLingerTime;
         Vector3 targetScale = shouldShow ? Vector3.one * showScale : Vector3.zero;
         textTransform.localScale = Vector3.Lerp(textTransform.localScale, targetScale, Time.deltaTime * scaleSpeed);
