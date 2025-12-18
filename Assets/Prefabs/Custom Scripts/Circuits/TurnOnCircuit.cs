@@ -28,7 +28,10 @@ public class TurnOnCircuit : MonoBehaviour
     public float path_speed = 1.0f;
 
     [SerializeField]
-    private int current_index = 1;
+    private GameObject[] electrons = new GameObject [10];
+
+    // Per-electron state
+    private int[] electronIndex;
 
     [SerializeField]
     private GameObject electron_prefab;
@@ -50,35 +53,53 @@ public class TurnOnCircuit : MonoBehaviour
     {
         m_GameObject = this.gameObject;
         m_InteractionGroup = FindFirstObjectByType<XRInteractionGroup>();
-        //Instantiate(electron_prefab, path_points[0].transform.position, Quaternion.identity);
         EnsureButtonListener();
+
+        //Electron Flow Initialization
+        electrons = new GameObject[10];
+
+        // Instantiate electrons with small offsets to avoid overlap
+        for(int i = 0; i < electrons.Length; i++)
+        {
+            var offset = new Vector3(i * 0.01f, 0, 0.01f); // adjust spacing as needed
+            electrons[i] = Instantiate(electron_prefab, path_points[0].transform.position + offset, Quaternion.identity);
+            Debug.Log("Electron instantiated " + i + ": " + electrons[i]);
+        }
+
+        // Initialize per-electron state arrays
+        int count = electrons.Length;
+        electronIndex = new int[count];
+        for (int i = 0; i < count; i++)
+        {
+            electronIndex[i] = 0; // start at first point
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(path_points.Length);
+        //Debug.Log(path_points.Length);
         //UnityEngine.Debug.Log(m_InteractionGroup.focusInteractable);
         if(m_IsCircuitOn)
-        {
+        {              
             m_CircuitBulb.GetComponent<Renderer>().material = m_ActiveMaterial;
 
-            if (path_points.Length == 0)
-                return;
-
-
-            Transform target = path_points[current_index];
-            electron_prefab.transform.position = Vector3.MoveTowards(electron_prefab.transform.position, target.position, path_speed * Time.deltaTime);
-            Debug.Log("Moving");
-            if(Vector3.Distance(electron_prefab.transform.position, target.position) < 0.0001f)
+            for(int i = 0; i < electrons.Length; i++)
             {
-                Debug.Log("Chaning Path");
-                current_index = (current_index + 1) % path_points.Length;
+
+                Transform target = path_points[electronIndex[i]];
+                electrons[i].transform.position = Vector3.MoveTowards(electrons[i].transform.position, target.position, path_speed * Time.deltaTime);
+
+                if(Vector3.Distance(electrons[i].transform.position, target.position) < 0.01f)
+                {
+                    // advance this electron's index; do not add additional wait so it flows continuously
+                    electronIndex[i] = (electronIndex[i] + 1) % path_points.Length;
+                }
             }
         }
         else
         {
-            m_CircuitBulb.GetComponent<Renderer>().material = m_InactiveMaterial;
+                m_CircuitBulb.GetComponent<Renderer>().material = m_InactiveMaterial;
         }
 
         if (m_InteractionGroup == null)
