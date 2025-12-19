@@ -554,6 +554,7 @@ GameObject:
   - component: {fileID: 2429892502777287438}
   - component: {fileID: 4751419022292204360}
   - component: {fileID: -398119629239900688}
+  - component: {fileID: 9209015890100178901}
   m_Layer: 0
   m_Name: Mars
   m_TagString: Untagged
@@ -764,6 +765,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   object_ref: {fileID: 7141473472709486987}
   float_height: 0.25
+--- !u!114 &9209015890100178901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141473472709486987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b309761041ee54265b7f9a8c0f373dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObjectPlaneTranslationMode: 1
+  m_EnablePlaneClassificationFilter: 1
+  m_PlaneClassificationsList: 
+  m_PlaneClassifications: 2147483648
+  m_UseInteractorOrientation: 0
+  m_MinScale: 200
+  m_MaxScale: 297.2647
+  m_ScaleSensitivity: 25
+  m_Elasticity: 0
+  m_EnableElasticBreakLimit: 0
+  m_ElasticBreakLimit: 0.5
 --- !u!1 &7497559419627896607
 GameObject:
   m_ObjectHideFlags: 0

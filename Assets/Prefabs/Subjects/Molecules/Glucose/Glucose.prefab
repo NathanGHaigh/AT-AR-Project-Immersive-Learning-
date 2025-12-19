@@ -540,7 +540,7 @@ MonoBehaviour:
   m_MinScale: 1
   m_MaxScale: 2
   m_ScaleSensitivity: 10
-  m_Elasticity: 0.15
+  m_Elasticity: 0
   m_EnableElasticBreakLimit: 0
   m_ElasticBreakLimit: 0.5
 --- !u!114 &5050374701284683194
