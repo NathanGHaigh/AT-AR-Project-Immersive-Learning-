@@ -111,8 +111,6 @@ public class FloatOrbitSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-        transform.position = new(0, 0.5f ,0);
         InstaniateAsteroidBelt();
         InstaniateKupierBelt();
 

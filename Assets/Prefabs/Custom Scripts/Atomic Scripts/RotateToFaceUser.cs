@@ -5,17 +5,15 @@ public class RotateToFaceUser : MonoBehaviour
 {
     [SerializeField]
     XRInteractionGroup m_InteractionGroup;
-    public GameObject m_GameObject;
+    public GameObject a_GameObject;
     [SerializeField]
     bool m_Selected;
     [SerializeField]
     private Camera m_Camera;
-    [SerializeField]
-    float rotation_offset_y;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        m_GameObject = this.gameObject;
+        a_GameObject = this.gameObject;
         m_InteractionGroup = FindFirstObjectByType<XRInteractionGroup>();
         m_Camera = Camera.main;
 
@@ -34,7 +32,7 @@ public class RotateToFaceUser : MonoBehaviour
         }
         var focusedTransform = focusedObject.transform;
 
-        if (focusedTransform = m_GameObject.transform)
+        if (focusedTransform = a_GameObject.transform)
         {
             Debug.Log("Selected Atom");
             m_Selected = true;
@@ -54,7 +52,11 @@ public class RotateToFaceUser : MonoBehaviour
         if (m_Selected)
         {
             RotateScript.enabled = false;
-            m_GameObject.transform.LookAt(m_Camera.transform.position);
+            Vector3 directionToCamera = m_Camera.transform.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(directionToCamera);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+
+
         }
         else
         {

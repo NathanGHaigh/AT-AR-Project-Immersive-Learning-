@@ -20,7 +20,7 @@ public class HeliumFusionProcess : MonoBehaviour
     private GameObject Fusing_Text;
 
     [SerializeField]
-    private float fusionDuration = 2.0f; // seconds to fuse
+    private float fusionDuration = 2.0f;
 
     [SerializeField]
     private GameObject self;
@@ -47,10 +47,11 @@ public class HeliumFusionProcess : MonoBehaviour
     private GameObject objectSpawner;
 
     [SerializeField]
-    private float hydrogenSpawnDistance = 0.5f; // distance to separate spawned hydrogens
+    private float hydrogenSpawnDistance = 0.5f;
 
+    [SerializeField]
+    public GameObject[] markers;
 
-    // Prevent double processing
     private bool isFusing = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -78,7 +79,7 @@ public class HeliumFusionProcess : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"{self.name} does not have a recognized fusion tag. Current tag: '{self.tag}'. Please set the tag to Hydrogen/Deuterium/Helium-3/Helium.");
+            Debug.Log("Error Cannot be Assigned");
         }
     }
 
@@ -178,7 +179,6 @@ public class HeliumFusionProcess : MonoBehaviour
                     if (TryClaimFusion(otherProcess))
                     {
                         UnityEngine.Debug.Log("Made Deuterium");
-                        // start coroutine to show text and delay actual fusion
                         StartCoroutine(DoFusionSequence(otherObj, otherProcess, DeuteriumPrefab, false));
                     }
 
@@ -248,12 +248,21 @@ public class HeliumFusionProcess : MonoBehaviour
         myRenderer.SetActive(false);
         var otherRenderer = otherObj.transform.parent.gameObject.transform.Find("Visuals").gameObject;
         otherRenderer.SetActive(false);
+
+        if (markers != null)
+            for (int i = 0; i < markers.Length; i++)
+            {
+                markers[i].SetActive(false);
+            }
+        if (otherObj.transform.parent.gameObject.GetComponent<HeliumFusionProcess>() != null)
+            for (int i = 0; i < otherObj.transform.parent.gameObject.GetComponent<HeliumFusionProcess>().markers.Length; i++)
+                otherObj.transform.parent.gameObject.GetComponent<HeliumFusionProcess>().markers[i].SetActive(false);
+
         //----------------------------------------------------------------------------------------------//
 
-        // wait for fusion duration
+
         yield return new WaitForSeconds(fusionDuration);
 
-        // instantiate result
         if (resultPrefab != null)
         {
             if (objectSpawner != null)

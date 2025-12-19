@@ -9,7 +9,7 @@ public class BetaDecay : MonoBehaviour
     [SerializeField]
     public float decayRate = 0.1f;
     [SerializeField]
-    public float particleSpeed = 2.0f;
+    public float particleSpeed = 10.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

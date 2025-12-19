@@ -14,14 +14,10 @@ public class LookAtTextDetectorArray : MonoBehaviour
     public float textLingerTime = 3.0f;
     public float RayCastDistance = 5.0f;
     float lastLookAtTime = -Mathf.Infinity;
-    public float avoidClippingOffset = 0.05f;
 
     [Header("Layers and Bools")]
     public LayerMask MarkerLayer; 
     public bool isLookingAtText;
-
-    [Header("Offsets")]
-    public Vector3[] initialOffsets;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,17 +27,11 @@ public class LookAtTextDetectorArray : MonoBehaviour
         if (text_transforms == null)
             text_transforms = new Transform[0];
 
-        // Initialize all text scales to zero and capture offsets relative to the marker
-        initialOffsets = new Vector3[text_transforms.Length];
         for (int i = 0; i < text_transforms.Length; i++)
         {
             Transform t = text_transforms[i];
             if (t == null) continue;
             t.localScale = Vector3.zero;
-            if (textMarker != null)
-                initialOffsets[i] = t.position - textMarker.transform.position;
-            else
-                initialOffsets[i] = t.position - transform.position;
         }
     }
 
@@ -50,11 +40,6 @@ public class LookAtTextDetectorArray : MonoBehaviour
     {
         CheckLookedAt();
         HandleTextScaling();
-    }
-
-    void LateUpdate()
-    {
-        PositionInFrontOfMarker();
     }
 
     void CheckLookedAt()
@@ -87,39 +72,6 @@ public class LookAtTextDetectorArray : MonoBehaviour
         {
             if (textTransform == null) continue;
             textTransform.localScale = Vector3.Lerp(textTransform.localScale, targetScale, Time.deltaTime * scaleSpeed);
-        }
-    }
-
-    void PositionInFrontOfMarker()
-    {
-        if (cam == null || textMarker == null || text_transforms == null) return;
-
-        Vector3 markerPos = textMarker.transform.position;
-
-        for (int i = 0; i < text_transforms.Length; i++)
-        {
-            Transform textTransform = text_transforms[i];
-            if (textTransform == null) continue;
-         
-            Vector3 offset = (i < initialOffsets.Length) ? initialOffsets[i] : (textTransform.position - markerPos);
-            Vector3 desiredPos = markerPos + offset;
-            Vector3 dir = desiredPos - markerPos;
-            float dist = dir.magnitude;
-            if (dist > 0f)
-            {
-                RaycastHit hit;              
-                if (Physics.Raycast(markerPos, dir.normalized, out hit, dist, ~0, QueryTriggerInteraction.Ignore))
-                {                   
-                    desiredPos = hit.point + hit.normal * avoidClippingOffset;
-                }
-            }
-            textTransform.position = desiredPos;
-
-            Vector3 lookDirection = cam.transform.position - textTransform.position;
-            if (lookDirection.sqrMagnitude > 0.0001f)
-            {
-                textTransform.rotation = Quaternion.LookRotation(lookDirection, Vector3.up) * Quaternion.Euler(0,180,0);
-            }
         }
     }
 

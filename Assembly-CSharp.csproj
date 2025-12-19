@@ -71,6 +71,7 @@
     <Compile Include="Assets\MobileARTemplateAssets\Scripts\GoalManager.cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\Atomic Scripts\HeliumFusionProcess.cs" />
     <Compile Include="Assets\Settings\Project Configuration\SceneTemplate_RotateCube.cs" />
+    <Compile Include="Assets\Prefabs\Custom Scripts\SpawnFloating.cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\DestroySelf.cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\Radiation Scripts\BetaDecay.cs" />
     <Compile Include="Assets\Prefabs\Custom Scripts\FocusTextSystem\LookAtTextDetector.cs" />

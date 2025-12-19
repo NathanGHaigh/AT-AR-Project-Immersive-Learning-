@@ -27,7 +27,7 @@ public class AlphaDecay : MonoBehaviour
     {
         Debug.Log("Alpha Decay Fired");
         GameObject Decay = Instantiate(AlphaParticlePrefab, decayVector.transform.position, Quaternion.identity);
-        Vector3 alphaDecay = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5)).normalized / 2;
+        Vector3 alphaDecay = new Vector3(Random.Range(0, 5), Random.Range(0, 5), Random.Range(0, 5)).normalized / 2;
         Rigidbody rb = Decay.GetComponent<Rigidbody>();
         rb.linearVelocity = alphaDecay;
     }

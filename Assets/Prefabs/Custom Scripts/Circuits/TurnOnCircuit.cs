@@ -30,7 +30,6 @@ public class TurnOnCircuit : MonoBehaviour
     [SerializeField]
     private GameObject[] electrons = new GameObject [10];
 
-    // Per-electron state
     private int[] electronIndex;
 
     [SerializeField]
@@ -58,15 +57,13 @@ public class TurnOnCircuit : MonoBehaviour
         //Electron Flow Initialization
         electrons = new GameObject[10];
 
-        // Instantiate electrons with small offsets to avoid overlap
         for(int i = 0; i < electrons.Length; i++)
         {
-            var offset = new Vector3(i * 0.01f, 0, 0.01f); // adjust spacing as needed
+            var offset = new Vector3(i * 0.01f, 0, 0.01f); 
             electrons[i] = Instantiate(electron_prefab, path_points[0].transform.position + offset, Quaternion.identity);
             Debug.Log("Electron instantiated " + i + ": " + electrons[i]);
         }
 
-        // Initialize per-electron state arrays
         int count = electrons.Length;
         electronIndex = new int[count];
         for (int i = 0; i < count; i++)
@@ -92,7 +89,6 @@ public class TurnOnCircuit : MonoBehaviour
 
                 if(Vector3.Distance(electrons[i].transform.position, target.position) < 0.01f)
                 {
-                    // advance this electron's index; do not add additional wait so it flows continuously
                     electronIndex[i] = (electronIndex[i] + 1) % path_points.Length;
                 }
             }
@@ -132,7 +128,6 @@ public class TurnOnCircuit : MonoBehaviour
         if(focusedGameObject == m_GameObject)
         {
             //UnityEngine.Debug.Log("Turn on the circuit: " + m_GameObject.name);
-            // Do something here
             On_Button.SetActive(true);
         }
         if(focusedGameObject != m_GameObject)
