@@ -1,1 +1,37 @@
+Advanced Technologies Project 1 - Immersive Learning in AR
 
+Introduction
+-------------------------------------------------------------------------------------
+This application is an AR Mobile system built for iOS and Android. It showcases a range of
+physics based systems such as Atomic Structures and Radiation
+
+How to Run (PC)
+-------------------------------------------------------------------------------------
+1. Open the project in Unity version 6000.1.9f1
+2. Run the program in sample scene
+3. Controls are right mouse button to select, right and left mouse button to rotate with selected object,
+mouse wheel to scale and right clicking into blank space deselects objects
+
+If you encounter texture errors from an Engine Conversion
+
+1. Navigate to Window/Rendering/PipelineConverter
+2. Tick the top 2 options and run the conversion
+3. Then navigate to the Settings Folder in Assets and Add a background render feature to each forward renderer
+
+How to Run (iOS)
+-------------------------------------------------------------------------------------
+1. Set build profile to iOS, ensure you select Developer Mode
+2. Add anything to the Camera reference in player settings
+3. Build the project onto a Macbook so Xcode will automatically run
+4. When Xcode launches
+	a. Enable automatic signing
+	b. Have a development team set up
+	c. Ensure you connect an apple device (iPhone) to the mac which is part of that developer team
+	d. Go to Frame work and iLinker flags and delete both -iWeakSystem and -64 from all flags
+	e. Run the Xcode project
+
+How to Run (Android)
+-------------------------------------------------------------------------------------
+1. Set Build profile to Andriod
+2. Build to correct Android version
+3. Take the created APK file and run it on you phone
